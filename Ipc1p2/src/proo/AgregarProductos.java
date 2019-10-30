@@ -77,6 +77,11 @@ public class AgregarProductos extends javax.swing.JFrame {
         jLabel7.setText("Direccion de Imagen :");
 
         identificador.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        identificador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                identificadorActionPerformed(evt);
+            }
+        });
         identificador.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 identificadorKeyTyped(evt);
@@ -150,7 +155,7 @@ public class AgregarProductos extends javax.swing.JFrame {
         });
 
         regresar5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        regresar5.setText("BUSCAR");
+        regresar5.setText("Limpiar");
         regresar5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         regresar5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,9 +186,7 @@ public class AgregarProductos extends javax.swing.JFrame {
                             .addComponent(descripcion)
                             .addComponent(precio)
                             .addComponent(existencia)
-                            .addComponent(direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(regresar5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(direccion, javax.swing.GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -193,7 +196,9 @@ public class AgregarProductos extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addComponent(regresar3, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(regresar5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
         layout.setVerticalGroup(
@@ -257,6 +262,9 @@ public class AgregarProductos extends javax.swing.JFrame {
             System.out.println("no es numero");
         }
         */
+ 
+       
+       
        
         Producto prod = new Producto();
         prod.Identificador = Integer.parseInt(identificador.getText());
@@ -266,6 +274,8 @@ public class AgregarProductos extends javax.swing.JFrame {
         prod.existencia = Integer.parseInt(existencia.getText());
         prod.direccion = direccion.getText();
         informacion.lista_productos.ingresarNodo(prod);
+        
+        
     }//GEN-LAST:event_agregarActionPerformed
 
     private void regresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar1ActionPerformed
@@ -285,16 +295,23 @@ public class AgregarProductos extends javax.swing.JFrame {
         // ESTE ES BUSCAR
         Producto prod= informacion.lista_productos.buscar(Integer.parseInt(identificador.getText()));
         if(prod == null){
-            
+            JOptionPane.showMessageDialog(rootPane,"ESTE PRODUCTO AUN NO EXISTE");
         }else{
-            identificador.setText(""+prod.Identificador);
-            nombre.setText(prod.nombre);
-            descripcion.setText(prod.descripcion);
+            JOptionPane.showMessageDialog(rootPane,"NEL CHAVO YA EXISTE ESTE PRODUCTO");
+            identificador.setText("");
+           // identificador.setText(""+prod.Identificador);
+           //nombre.setText(prod.nombre);
+           //descripcion.setText(prod.descripcion);
         }
     }//GEN-LAST:event_regresar4ActionPerformed
 
     private void regresar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar5ActionPerformed
-
+   identificador.setText("");
+   descripcion.setText("");
+   nombre.setText("");
+   precio.setText("");
+   existencia.setText("");
+   direccion.setText("");
     }//GEN-LAST:event_regresar5ActionPerformed
 
     private void identificadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_identificadorKeyTyped
@@ -330,6 +347,10 @@ public class AgregarProductos extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane,"Ingrese solo numeros");
         }
     }//GEN-LAST:event_precioKeyTyped
+
+    private void identificadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_identificadorActionPerformed
+ 
+    }//GEN-LAST:event_identificadorActionPerformed
 
     /**
      * @param args the command line arguments

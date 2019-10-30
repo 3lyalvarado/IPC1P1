@@ -64,6 +64,20 @@ public class funcionesRegistros {
          return false; 
         
     }
+        public boolean verificar(String verificarusuario){
+         nodoRegistros aux = raiz;
+         while(aux!=null){
+              if(aux.usuario.equals(verificarusuario) ){
+   
+                  JOptionPane.showMessageDialog(null,"Nel el usuario "+aux.usuario+" ya existe");
+   
+                  return true;
+              }
+                      aux = aux.sig;
+          }
+         return false; 
+        
+    }
 
 
     

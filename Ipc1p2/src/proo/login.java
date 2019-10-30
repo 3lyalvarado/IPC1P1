@@ -124,7 +124,8 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_contraseñaActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-
+      System.out.println("Saliendo del Programa Tiendecita");
+        System.exit(0);
     }//GEN-LAST:event_salirActionPerformed
 
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed

@@ -74,6 +74,11 @@ public class Productos extends javax.swing.JFrame {
         boton44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ver.png"))); // NOI18N
         boton44.setText("Mostrar");
         boton44.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        boton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton44ActionPerformed(evt);
+            }
+        });
 
         regresar11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         regresar11.setText("REGRESAR");
@@ -162,6 +167,12 @@ public class Productos extends javax.swing.JFrame {
         ventana.setVisible(true);
         dispose();
     }//GEN-LAST:event_regresar11ActionPerformed
+
+    private void boton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton44ActionPerformed
+        MostrarProductos ventana = new MostrarProductos();
+        ventana.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_boton44ActionPerformed
 
     /**
      * @param args the command line arguments
