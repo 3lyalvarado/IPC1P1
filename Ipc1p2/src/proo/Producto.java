@@ -1,9 +1,4 @@
 package proo;
-
-/**
- *
- * @author HP
- */
 public class Producto {
     public int Identificador;
     public String nombre;

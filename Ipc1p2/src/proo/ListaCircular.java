@@ -33,8 +33,8 @@ public class ListaCircular {
             nuevo.siguiente = primero;
             ultimo= nuevo;
         }
-    }
-    public void desplegarLista(){
+    }/**
+        public void desplegarLista(){
         nodo actual = new nodo();
         actual = primero;
         do{
@@ -42,7 +42,7 @@ public class ListaCircular {
             actual = actual.siguiente;
         }while(actual != primero);
         
-    }
+    }**/
     public void desplegarListaVer2(){
         nodo actual = new nodo();
         actual = primero.siguiente;
@@ -57,7 +57,7 @@ public class ListaCircular {
         actual = primero;
         do{
             if(actual.dato == id){
-                System.out.println("Ingrese el nuevo dato para este not");
+                System.out.println("Ingrese el nuevo dato para este nodo");
             }
             actual =actual.siguiente;
         }while(actual!=primero);

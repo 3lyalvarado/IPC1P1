@@ -1,4 +1,4 @@
 package proo;
 public class informacion {
-    public static ListaCircular lista_clientes = new ListaCircular();
+    public static ListaCircular lista_productos = new ListaCircular();
 }

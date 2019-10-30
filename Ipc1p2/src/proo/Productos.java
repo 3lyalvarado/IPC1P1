@@ -5,9 +5,6 @@ public class Productos extends javax.swing.JFrame {
     public Productos() {
         initComponents();
     }
-    
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,6 +64,11 @@ public class Productos extends javax.swing.JFrame {
         boton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bote-de-basura.png"))); // NOI18N
         boton33.setText("Eliminar");
         boton33.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        boton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton33ActionPerformed(evt);
+            }
+        });
 
         boton44.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         boton44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ver.png"))); // NOI18N
@@ -76,6 +78,11 @@ public class Productos extends javax.swing.JFrame {
         regresar11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         regresar11.setText("REGRESAR");
         regresar11.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        regresar11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresar11ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -143,6 +150,18 @@ public class Productos extends javax.swing.JFrame {
         ventana.setVisible(true);
         dispose();
     }//GEN-LAST:event_boton11ActionPerformed
+
+    private void boton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton33ActionPerformed
+        EliminarProductos ventana = new EliminarProductos();
+        ventana.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_boton33ActionPerformed
+
+    private void regresar11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar11ActionPerformed
+        Administrador ventana = new Administrador();
+        ventana.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_regresar11ActionPerformed
 
     /**
      * @param args the command line arguments

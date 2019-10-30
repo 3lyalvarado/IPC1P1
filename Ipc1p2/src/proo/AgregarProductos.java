@@ -77,6 +77,11 @@ public class AgregarProductos extends javax.swing.JFrame {
         jLabel7.setText("Direccion de Imagen :");
 
         identificador.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        identificador.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                identificadorKeyTyped(evt);
+            }
+        });
 
         nombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -88,11 +93,21 @@ public class AgregarProductos extends javax.swing.JFrame {
                 precioActionPerformed(evt);
             }
         });
+        precio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                precioKeyTyped(evt);
+            }
+        });
 
         existencia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         existencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 existenciaActionPerformed(evt);
+            }
+        });
+        existencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                existenciaKeyTyped(evt);
             }
         });
 
@@ -227,19 +242,22 @@ public class AgregarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_existenciaActionPerformed
 
     private void precioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioActionPerformed
-        // TODO add your handling code here:
+ 
     }//GEN-LAST:event_precioActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        // TODO add your handling code here:
-        String info = existencia.getText();
+        // AGREGAR
+       /* String info = existencia.getText();
+        if(0==0){       
+        }
         try{
             int numero = Integer.parseInt(info);
-            System.out.println("Si es numero");
+            JOptionPane.showMessageDialog("Si es numero");
         }catch(Exception e){
             System.out.println("no es numero");
         }
-        //
+        */
+       
         Producto prod = new Producto();
         prod.Identificador = Integer.parseInt(identificador.getText());
         prod.descripcion = descripcion.getText();
@@ -247,7 +265,7 @@ public class AgregarProductos extends javax.swing.JFrame {
         prod.precio = Integer.parseInt(precio.getText());
         prod.existencia = Integer.parseInt(existencia.getText());
         prod.direccion = direccion.getText();
-        informacion.lista_clientes.ingresarNodo(prod);
+        informacion.lista_productos.ingresarNodo(prod);
     }//GEN-LAST:event_agregarActionPerformed
 
     private void regresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar1ActionPerformed
@@ -260,12 +278,12 @@ public class AgregarProductos extends javax.swing.JFrame {
 
     private void regresar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar3ActionPerformed
         // TODO add your handling code here:
-        informacion.lista_clientes.desplegarListaVer2();
+        informacion.lista_productos.desplegarListaVer2();
     }//GEN-LAST:event_regresar3ActionPerformed
 
     private void regresar4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar4ActionPerformed
-        // TODO add your handling code here:
-        Producto prod= informacion.lista_clientes.buscar(Integer.parseInt(identificador.getText()));
+        // ESTE ES BUSCAR
+        Producto prod= informacion.lista_productos.buscar(Integer.parseInt(identificador.getText()));
         if(prod == null){
             
         }else{
@@ -278,6 +296,40 @@ public class AgregarProductos extends javax.swing.JFrame {
     private void regresar5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar5ActionPerformed
 
     }//GEN-LAST:event_regresar5ActionPerformed
+
+    private void identificadorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_identificadorKeyTyped
+        char validar=evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"Ingrese solo numeros");
+        }
+        
+    }//GEN-LAST:event_identificadorKeyTyped
+
+    private void existenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_existenciaKeyTyped
+               char validar=evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"Ingrese solo numeros");
+        }
+    }//GEN-LAST:event_existenciaKeyTyped
+
+    private void precioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precioKeyTyped
+                char validar=evt.getKeyChar();
+        
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            
+            JOptionPane.showMessageDialog(rootPane,"Ingrese solo numeros");
+        }
+    }//GEN-LAST:event_precioKeyTyped
 
     /**
      * @param args the command line arguments

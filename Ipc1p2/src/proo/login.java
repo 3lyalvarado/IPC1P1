@@ -1,14 +1,7 @@
 package proo;
 import javax.swing.JOptionPane;
-/**
- *
- * @author HP
- */
 public class login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form login
-     */
     public login() {
         initComponents();
     }
@@ -23,6 +16,7 @@ public class login extends javax.swing.JFrame {
         contraseña = new javax.swing.JTextField();
         salir = new javax.swing.JButton();
         ingresar = new javax.swing.JButton();
+        crear1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -61,6 +55,15 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        crear1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        crear1.setText("CREAR CUENTA");
+        crear1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        crear1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crear1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -74,13 +77,14 @@ public class login extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(crear1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ingresar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(55, 55, 55))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -92,10 +96,12 @@ public class login extends javax.swing.JFrame {
                 .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(ingresar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salir)
-                    .addComponent(ingresar))
+                    .addComponent(crear1))
                 .addGap(22, 22, 22))
         );
 
@@ -114,30 +120,43 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_contraseñaActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        // TODO add your handling code here:
-       
 
     }//GEN-LAST:event_salirActionPerformed
 
     private void ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarActionPerformed
- if(usuario.getText().equals("Admin")|| contraseña.getText().equals(12345)){
-        Administrador ventana = new Administrador();
-        ventana.setVisible(true);
-        dispose();
- }      else{
+        String contra = "1234";
+        String admin = "Admin";
+        if(usuario.getText().equals(admin) && contraseña.getText().equals(contra)){
+           JOptionPane.showMessageDialog(null,"INGRESO PRIVILEGIADO");
+            Administrador ventana = new Administrador();
+           ventana.setVisible(true);
+           dispose();
+              }else{  funcionesRegistros fun = new funcionesRegistros();   
+                    String logusuario = usuario.getText();
+                    String logcontraseña = contraseña.getText();
+                   if (fun.ingresar(logusuario,logcontraseña)){
+                        
+                   }else{
      JOptionPane.showMessageDialog(rootPane,"Usuario O ontraseña Incorrecta");
      usuario.setText("");
      contraseña.setText("");
- }
+          }
+        }
     }//GEN-LAST:event_ingresarActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usuarioActionPerformed
+
+    private void crear1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crear1ActionPerformed
+       CrearUsuario ventana = new CrearUsuario();
+               ventana.setVisible(true);
+               dispose();
+    }//GEN-LAST:event_crear1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,6 +184,9 @@ public class login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -175,11 +197,12 @@ public class login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField contraseña;
+    private javax.swing.JTextField contraseña;
+    private javax.swing.JButton crear1;
     private javax.swing.JButton ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton salir;
-    public javax.swing.JTextField usuario;
+    private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 }
