@@ -19,7 +19,8 @@ public class Productos extends javax.swing.JFrame {
         boton44 = new javax.swing.JButton();
         regresar11 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Administrador - Productos");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -59,6 +60,11 @@ public class Productos extends javax.swing.JFrame {
         boton22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/busqueda.png"))); // NOI18N
         boton22.setText("Modificar");
         boton22.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        boton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton22ActionPerformed(evt);
+            }
+        });
 
         boton33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         boton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bote-de-basura.png"))); // NOI18N
@@ -157,7 +163,7 @@ public class Productos extends javax.swing.JFrame {
     }//GEN-LAST:event_boton11ActionPerformed
 
     private void boton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton33ActionPerformed
-        EliminarProductos ventana = new EliminarProductos();
+        Otracosa ventana = new Otracosa();
         ventana.setVisible(true);
         dispose();
     }//GEN-LAST:event_boton33ActionPerformed
@@ -169,10 +175,17 @@ public class Productos extends javax.swing.JFrame {
     }//GEN-LAST:event_regresar11ActionPerformed
 
     private void boton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton44ActionPerformed
-        MostrarProductos ventana = new MostrarProductos();
+        Mostrar_Usuarios ventana = new Mostrar_Usuarios();
         ventana.setVisible(true);
         dispose();
     }//GEN-LAST:event_boton44ActionPerformed
+
+    private void boton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton22ActionPerformed
+        EditarProductos ventana = new EditarProductos();
+        ventana.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_boton22ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,5 +1,6 @@
 package proo;
 public class Producto {
+    public int ofertas;
     public int Identificador;
     public String nombre;
     public String descripcion;

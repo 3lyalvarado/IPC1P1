@@ -21,9 +21,9 @@ public class funcionesRegistros {
     public void imprimir(){
         nodoRegistros aux = raiz;
         while(aux!=null){
+         //   String string = aux.nombre+","+aux.contraseña+","+aux.tarjeta+","+aux.correo+","+aux.usuario;
             System.out.println(aux.nombre+","+aux.contraseña+","+aux.tarjeta+","+aux.correo+","+aux.usuario);
-            aux = aux.sig;
-           
+            aux = aux.sig;       
         }
     }
     public boolean buscar(int tarjeta){
@@ -36,16 +36,16 @@ public class funcionesRegistros {
           }
         return false;
     }
-    public boolean editar(int tarjetaeditar, String nombrenuevo, int tarjetanueva){       
+    public boolean editar(String nuevonombre, String nuevocorreo, String nuevousuario, String nuevacontraseña,int nuevatarjeta){       
         nodoRegistros aux = raiz;
          while(aux!=null){
-              if(aux.tarjeta == tarjetaeditar || aux.nombre == nombrenuevo){
-                  aux.tarjeta = tarjetanueva;
-                  CrearUsuario crear = new CrearUsuario();
-                  crear.setVisible(true);
-                
+              if(aux.usuario.equals(nuevousuario)){
+                  aux.tarjeta = nuevatarjeta;
+                  aux.nombre = nuevonombre;
+                  aux.correo = nuevocorreo;
+                  aux.contraseña = nuevacontraseña;              
                   return true;
-              }
+              }             
                       aux = aux.sig;
           }
          return false;   
@@ -54,7 +54,7 @@ public class funcionesRegistros {
          nodoRegistros aux = raiz;
          while(aux!=null){
               if(aux.usuario.equals(logusuario) && aux.contraseña.equals(logcontraseña)){
-                  ishop crear = new ishop();
+                  ishop crear = new ishop(aux.usuario);
                   JOptionPane.showMessageDialog(null,"Bienvenid"+aux.usuario);
                   crear.setVisible(true);
                   return true;

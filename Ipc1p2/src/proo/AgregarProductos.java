@@ -35,27 +35,28 @@ public class AgregarProductos extends javax.swing.JFrame {
         regresar5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Administrador- Agregar Productos");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("ADMINISTRADOR");
+        jLabel1.setText("AGREGAR PRODUCTOS");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(178, 178, 178)
+                .addGap(182, 182, 182)
                 .addComponent(jLabel1)
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(183, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -137,7 +138,7 @@ public class AgregarProductos extends javax.swing.JFrame {
         });
 
         regresar3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        regresar3.setText("Mostrar");
+        regresar3.setText("MOSTRAR");
         regresar3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         regresar3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +147,7 @@ public class AgregarProductos extends javax.swing.JFrame {
         });
 
         regresar4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        regresar4.setText("BUSCAR");
+        regresar4.setText("VERIFICAR");
         regresar4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         regresar4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -155,7 +156,7 @@ public class AgregarProductos extends javax.swing.JFrame {
         });
 
         regresar5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        regresar5.setText("Limpiar");
+        regresar5.setText("LIMPIAR");
         regresar5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
         regresar5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,9 +264,6 @@ public class AgregarProductos extends javax.swing.JFrame {
         }
         */
  
-       
-       
-       
         Producto prod = new Producto();
         prod.Identificador = Integer.parseInt(identificador.getText());
         prod.descripcion = descripcion.getText();
@@ -273,13 +271,14 @@ public class AgregarProductos extends javax.swing.JFrame {
         prod.precio = Integer.parseInt(precio.getText());
         prod.existencia = Integer.parseInt(existencia.getText());
         prod.direccion = direccion.getText();
+        prod.ofertas = 0;
         informacion.lista_productos.ingresarNodo(prod);
         
         
     }//GEN-LAST:event_agregarActionPerformed
 
     private void regresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar1ActionPerformed
-        // TODO add your handling code here:
+   
         Administrador ventana = new Administrador();
         ventana.setVisible(true);
         dispose();

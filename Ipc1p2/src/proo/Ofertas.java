@@ -63,6 +63,11 @@ public class Ofertas extends javax.swing.JFrame {
         boton111.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/etiqueta.png"))); // NOI18N
         boton111.setText("Agregar");
         boton111.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        boton111.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton111ActionPerformed(evt);
+            }
+        });
 
         boton222.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         boton222.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ver.png"))); // NOI18N
@@ -77,6 +82,11 @@ public class Ofertas extends javax.swing.JFrame {
         regresar111.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         regresar111.setText("REGRESAR");
         regresar111.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 3, true));
+        regresar111.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regresar111ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,9 +136,26 @@ public class Ofertas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void boton111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton111ActionPerformed
+        
+        AgregarOfertas ventana = new AgregarOfertas();
+        ventana.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_boton111ActionPerformed
+
+    private void regresar111ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresar111ActionPerformed
+        
+        Administrador ventana = new Administrador();
+        ventana.setVisible(true);
+        dispose();
+        
+    }//GEN-LAST:event_regresar111ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
